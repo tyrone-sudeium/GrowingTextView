@@ -46,6 +46,7 @@
 @synthesize dataDetectorTypes; 
 @synthesize animateHeightChange;
 @synthesize returnKeyType;
+@synthesize inputView, inputAccessoryView;
 
 // having initwithcoder allows us to use HPGrowingTextView in a Nib. -- aob, 9/2011
 - (id)initWithCoder:(NSCoder *)aDecoder
@@ -212,8 +213,8 @@
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 40000
                     [UIView animateWithDuration:0.1f 
                                           delay:0 
-                                        options:(UIViewAnimationOptionAllowUserInteraction|
-                                                 UIViewAnimationOptionBeginFromCurrentState)                                 
+                                        options:(UIViewAnimationOptionAllowUserInteraction/*|
+                                                 UIViewAnimationOptionBeginFromCurrentState*/)
                                      animations:^(void) {
                                          [self resizeTextView:newSizeH];
                                      } 
@@ -454,6 +455,18 @@
 - (void)scrollRangeToVisible:(NSRange)range
 {
 	[internalTextView scrollRangeToVisible:range];
+}
+
+- (void) setInputAccessoryView:(UIView *) aView
+{
+    inputAccessoryView = aView;
+    internalTextView.inputAccessoryView = inputAccessoryView;
+}
+
+- (void) setInputView:(UIView *) aView
+{
+    inputView = aView;
+    internalTextView.inputView = inputView;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////

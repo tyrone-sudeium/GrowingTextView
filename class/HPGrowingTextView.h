@@ -91,6 +91,8 @@
 @property (nonatomic) UIReturnKeyType returnKeyType;
 @property (assign) UIEdgeInsets contentInset;
 @property(nonatomic) BOOL enablesReturnKeyAutomatically;
+@property(nonatomic,strong) UIView *inputAccessoryView;
+@property(nonatomic,strong) UIView *inputView;
 
 //uitextview methods
 //need others? use .internalTextView
