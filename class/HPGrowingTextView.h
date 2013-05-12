@@ -102,5 +102,6 @@
 
 - (BOOL)hasText;
 - (void)scrollRangeToVisible:(NSRange)range;
+- (void)reloadInputViews;
 
 @end
